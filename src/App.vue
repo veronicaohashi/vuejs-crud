@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <!-- Lacuna - Sintaxe de interpolação -->
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
@@ -22,9 +23,12 @@
 <script>
 export default {
   name: 'app',
+  // Função data para fornecer os dados que o template precisa
+  // sempre retornando um objeto javascript no qual as propriedades deste objeto são acessíveis através
+  // da sintaxe de interpolação
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App Test'
     }
   }
 }
