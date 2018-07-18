@@ -21,8 +21,19 @@ export default {
       fotos: []
     }
   },
+  // Cria o componente
   created(){
-    alert('Criei o componente');
+    // Acessa o próprio componente
+    // $http -> só exite dentro do meu componente por conta do vue-resource
+    // Retorna uma promise e não a lista de fotos
+    let promise = this.$http.get('http://localhost:3000/v1/fotos');
+    promise
+      .then(res => res.json())
+      .then(fotos => this.fotos = fotos, err => console.log(err));
+    // promise.then(res => {
+    //   res.json().then(fotos => this.fotos = fotos);
+    // });
+
   }
 }
 </script>
