@@ -18,13 +18,11 @@ export default {
   data(){
     return{
       titulo: 'Livros',
-      fotos: [ 
-        {
-          url: 'https://cdn.shopify.com/s/files/1/0155/7645/products/eBook-Algoritmos_large.jpg?v=1484936519',
-          titulo: 'cachorro'
-        }
-      ]
+      fotos: []
     }
+  },
+  created(){
+    alert('Criei o componente');
   }
 }
 </script>

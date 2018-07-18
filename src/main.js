@@ -4,6 +4,10 @@ import Vue from 'vue'
 // ser o mesmo do arquivo
 import App from './App.vue'
 
+// Regitro do vue-resource
+import VueResource from 'vue-resource';
+Vue.use(VueResource);
+
 // Vue instance, criada com o auxilio do global vue object
 // A vue instance é a ponto entre o componente e a view 
 new Vue({
