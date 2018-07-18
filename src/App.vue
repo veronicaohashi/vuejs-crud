@@ -1,64 +1,34 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <!-- Lacuna - Sintaxe de interpolação -->
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+  <div>
+    <h1>{{ titulo }}</h1>
+    <!-- Não pode usar interpolação dentro de atributos -->
     <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
+      <li v-for="foto of fotos">
+        <img :src="foto.url" :alt="foto.titulo">
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
   // Função data para fornecer os dados que o template precisa
   // sempre retornando um objeto javascript no qual as propriedades deste objeto são acessíveis através
   // da sintaxe de interpolação
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App Test'
+  data(){
+    return{
+      titulo: 'Livros',
+      fotos: [ 
+        {
+          url: 'https://cdn.shopify.com/s/files/1/0155/7645/products/eBook-Algoritmos_large.jpg?v=1484936519',
+          titulo: 'cachorro'
+        }
+      ]
     }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
