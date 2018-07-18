@@ -65,7 +65,7 @@ export default {
     display: inline-block
   }
 
-  .imagem-reponsiva{
+  .imagem-responsiva{
     width: 100%;
   }
 </style>

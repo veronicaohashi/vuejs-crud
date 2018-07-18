@@ -15,7 +15,7 @@
 
 </script>
 
-<style>
+<style scoped>
   /* estilo do painel */ 
   .painel {
     padding: 0 auto;
@@ -36,6 +36,10 @@
     margin: 0 0 15px 0;
     padding: 10px;
     text-transform: uppercase;
+  }
+
+  * {
+    box-shadow: 5px 5px 5px;
   }
 
 </style>
