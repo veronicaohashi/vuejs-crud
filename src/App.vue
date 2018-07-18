@@ -1,10 +1,17 @@
 <template>
   <div class="corpo">
     <h1 class="centralizado">{{ titulo }}</h1>
-    <!-- Não pode usar interpolação dentro de atributos -->
+    <!--
+      v-on    -> data binding de evento que vai da view para a fonte de dados
+      $event  -> objeto especial do vue.js que sabe tudo sobre o evento disparado (no caso evento input)
+      .target -> quem disparou o evento (no caso a própria tag input)
+      .value  -> valor do input
+    -->
+    <input type="search" v-on:input="filtro = $event.target.value" class="filtro" placeholder="Filtrar">
     <ul class="lista-fotos">
       <li class="lista-fotos-item" v-for="foto of fotos">
         <meu-painel :titulo="foto.titulo">  
+          <!-- Não pode usar interpolação dentro de atributos -->
           <img class="imagem-responsiva" :src="foto.url" :alt="foto.titulo">
         </meu-painel>
                 
@@ -23,7 +30,8 @@ export default {
   data(){
     return{
       titulo: 'Livros',
-      fotos: []
+      fotos: [],
+      filtro: ''
     }
   },
   // Cria o componente
@@ -66,6 +74,11 @@ export default {
   }
 
   .imagem-responsiva{
+    width: 100%;
+  }
+
+  .filtro{
+    display: block;
     width: 100%;
   }
 </style>
