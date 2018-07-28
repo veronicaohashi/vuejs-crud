@@ -1,8 +1,17 @@
 <template>
   <div class="painel">
-    <h2 class="painel-titulo">{{titulo}}</h2>
-    <slot class="painel-conteudo">
-    </slot>
+    <!--
+      O atalho da direvita v-on é @
+      @ - atalho da view para a fonte de dados 
+      : - atalho da fonte de dados para a view
+    -->
+    <h2 class="painel-titulo" @dblclick="visivel = !visivel">{{titulo}}</h2>
+    <!-- 
+      No slot não funciona a diretiva v-show
+    -->
+    <div class="painel-conteudo" v-show="visivel">
+      <slot></slot>
+    </div>
   </div>   
 </template>
 
@@ -10,7 +19,12 @@
   export default{
     props:[
       'titulo'
-    ]
+    ],
+    data(){
+      return {
+        visivel: true
+      } 
+    }
   }
 
 </script>
