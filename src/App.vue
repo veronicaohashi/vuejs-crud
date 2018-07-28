@@ -7,9 +7,9 @@
       .target -> quem disparou o evento (no caso a própria tag input)
       .value  -> valor do input
     -->
-    <input type="search" v-on:input="filtro = $event.target.value" class="filtro" placeholder="Filtrar">
+    <input type="search" @input="filtro = $event.target.value" class="filtro" placeholder="Filtrar">
     <ul class="lista-fotos">
-      <li class="lista-fotos-item" v-for="foto of fotos">
+      <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
         <meu-painel :titulo="foto.titulo">  
           <!-- Não pode usar interpolação dentro de atributos -->
           <img class="imagem-responsiva" :src="foto.url" :alt="foto.titulo">
@@ -34,6 +34,7 @@ export default {
       filtro: ''
     }
   },
+
   // Cria o componente
   created(){
     // Acessa o próprio componente
@@ -50,6 +51,22 @@ export default {
   // Chave com o nome do componente que irei referenciar
   components:{
     'meu-painel': Painel
+  },
+
+  // Método para computar valor
+  computed: {
+    fotosComFiltro(){
+      // Atalho para acessar a propriedade retornada pela função data()
+      if (this.filtro) {
+        // Filtrar
+        // Expressao regular
+        let exp = new RegExp(this.filtro.trim(), 'i');
+        return this.fotos.filter(foto => exp.test(foto.titulo));
+      } else{
+        // Retorna a lista inteira de fotos sem ser filtrada
+        return this.fotos; 
+      }     
+    }
   }
 }
 </script>
