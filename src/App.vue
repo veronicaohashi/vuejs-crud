@@ -1,5 +1,10 @@
 <template>
   <div class="corpo">
+    <!-- 
+      Componente especial do vue-router que indica que, mediante as rotas acessadas pelos usuários,
+      os componentes serão inseridos.
+    -->
+    <router-view></router-view>
   </div>
 </template>
 
