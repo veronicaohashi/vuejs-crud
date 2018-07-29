@@ -8,6 +8,10 @@ import App from './App.vue'
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
 
+// Registro do vue-router
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+
 // Vue instance, criada com o auxilio do global vue object
 // A vue instance é a ponto entre o componente e a view 
 new Vue({
