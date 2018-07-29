@@ -13,6 +13,8 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 // Registro do routes
+// Como no routes.js não foi utilizado o export default, não podemos utilizar um elemento padrão, por isso
+// utiliza-se as {} para dizer o que eu quero importar do módulo
 import {routes} from './routes';
 // Com o auxílio do vue-router, passo as rotas configuradas e ele vai devolver um roteador que será utilizado
 // pela aplicação. propriedade routes = routes
@@ -23,6 +25,6 @@ const router = new VueRouter({ routes });
 new Vue({
   // Objeto de configuração
   el: '#app',                 // Elemento no qual será colocado o componente: id="app"
-  // router,                  
+  router,                     // Elemento router que possui todas as rotas mapeadas              
   render: h => h(App)         // Função render passando o componente que será renderizado
 })
