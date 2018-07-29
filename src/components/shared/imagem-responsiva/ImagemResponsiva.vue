@@ -5,14 +5,10 @@
 
 <script>
   export default {
-    props:{
-      url:{
-        required: true
-      },
-      titulo:{
-        required: true
-      }
-    }
+    props: [
+      'url',
+      'titulo'
+    ]
   }
 </script>
 

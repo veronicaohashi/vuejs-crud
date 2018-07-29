@@ -19,11 +19,9 @@
 
 <script>
   export default{
-    props:{
-      titulo: {
-        required: true
-      }
-    },
+    props: [
+      'titulo'
+    ],
 
     data(){
       return {
