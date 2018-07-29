@@ -11,10 +11,8 @@
     <ul class="lista-fotos">
       <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
         <meu-painel :titulo="foto.titulo">  
-          <!-- Não pode usar interpolação dentro de atributos -->
-          <img class="imagem-responsiva" :src="foto.url" :alt="foto.titulo">
-        </meu-painel>
-                
+          <imagem-responsiva :url="foto.url" :titulo="foto.titulo"/>
+        </meu-painel>   
       </li>
     </ul>
   </div>
@@ -22,6 +20,7 @@
 
 <script>
 import Painel from './components/shared/painel/Painel.vue';
+import ImagemResponsiva from './components/shared/imagem-responsiva/ImagemResponsiva.vue';
 
 export default {
   // Função data para fornecer os dados que o template precisa
@@ -50,7 +49,8 @@ export default {
   },
   // Chave com o nome do componente que irei referenciar
   components:{
-    'meu-painel': Painel
+    'meu-painel': Painel,
+    'imagem-responsiva': ImagemResponsiva
   },
 
   // Método para computar valor
@@ -90,9 +90,6 @@ export default {
     display: inline-block
   }
 
-  .imagem-responsiva{
-    width: 100%;
-  }
 
   .filtro{
     display: block;
