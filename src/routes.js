@@ -6,6 +6,6 @@ import Home from './components/home/Home.vue';
 export const routes = [
   // Configurando as rotas
   // Uma rota é uma objeto js com duas propriedades
-  { path: '', component: Home },
-  { path: '/cadastro', component: Cadastro }
+  { path: '', component: Home, titulo: 'Home' },
+  { path: '/cadastro', component: Cadastro, titulo: 'Cadastro'}
 ];

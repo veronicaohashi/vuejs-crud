@@ -19,9 +19,12 @@
 
 <script>
   export default{
-    props:[
-      'titulo'
-    ],
+    props:{
+      titulo: {
+        required: true
+      }
+    },
+
     data(){
       return {
         visivel: true
