@@ -18,7 +18,10 @@ Vue.use(VueRouter);
 import {routes} from './routes';
 // Com o auxílio do vue-router, passo as rotas configuradas e ele vai devolver um roteador que será utilizado
 // pela aplicação. propriedade routes = routes
-const router = new VueRouter({ routes });
+const router = new VueRouter({ 
+  routes,
+  mode: 'history'            // Para remover o # 
+});
 
 // Vue instance, criada com o auxilio do global vue object
 // A vue instance é a ponto entre o componente e a view 
