@@ -1,5 +1,13 @@
 <template>
   <div class="corpo">
+    <nav>
+      <ul>
+        <li v-for="route in routes">
+          <router-link :to="route.path ? route.path : '/'">{{ route.titulo }}</router-link>
+        </li>
+      </ul>
+    </nav>
+   
     <!-- 
       Componente especial do vue-router que indica que, mediante as rotas acessadas pelos usuários,
       os componentes serão inseridos.
@@ -9,8 +17,14 @@
 </template>
 
 <script>
-  export default {
+  import { routes } from './routes';
 
+  export default {
+    data(){
+      return{
+        routes
+      }
+    }
   }
 </script>
 
