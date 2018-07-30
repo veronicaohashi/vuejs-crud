@@ -1,5 +1,5 @@
 <template>
-  <button class="botao botao-perigo" :type="tipo">{{ rotulo }}</button>
+  <button @click="disparaAcao()" class="botao botao-perigo" :type="tipo">{{ rotulo }}</button>
 </template>
 
 <script>
@@ -7,7 +7,16 @@
     props: [
       'tipo',
       'rotulo'
-    ]
+    ],
+
+    methods:{
+      disparaAcao(){
+        if (confirm('Confirma operação?')){
+          // $emit - artefato que permite disparar um evento 
+          this.$emit('botaoAtivado');
+        }
+      }
+    }
   }
 </script>
 
