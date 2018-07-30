@@ -1,5 +1,5 @@
 <template>
-  <button @click="disparaAcao()" class="botao botao-perigo" :type="tipo">{{ rotulo }}</button>
+  <button @click="disparaAcao()" class="botao" :class="styleBotao" :type="tipo">{{ rotulo }}</button>
 </template>
 
 <script>
@@ -7,7 +7,8 @@
     props: [
       'tipo',
       'rotulo',
-      'confirmacao'
+      'confirmacao',
+      'estilo'
     ],
 
     methods:{
@@ -22,6 +23,13 @@
         }
         // Não precisa de confimação
         this.$emit('botaoAtivado');
+      }
+    },
+
+    computed:{
+      styleBotao(){
+        if (this.estilo == 'padrao' || !this.estilo) return 'botao-padrao';
+        if (this.estilo == 'perigo') return 'botao-perigo';
       }
     }
   }
