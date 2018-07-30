@@ -6,15 +6,22 @@
   export default {
     props: [
       'tipo',
-      'rotulo'
+      'rotulo',
+      'confirmacao'
     ],
 
     methods:{
       disparaAcao(){
-        if (confirm('Confirma operação?')){
-          // $emit - artefato que permite disparar um evento 
-          this.$emit('botaoAtivado');
+        if (this.confirmacao){                                        // Precisa de Confirmação?
+          // Precisa de confirmação
+          if (('Confirma operação?')){
+            // $emit - artefato que permite disparar um evento 
+            this.$emit('botaoAtivado');
+          }
+          return;
         }
+        // Não precisa de confimação
+        this.$emit('botaoAtivado');
       }
     }
   }
