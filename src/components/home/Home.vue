@@ -11,8 +11,11 @@
     <ul class="lista-fotos">
       <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
         <meu-painel :titulo="foto.titulo">  
-          <!-- Na diretiva estou enviando um objeto js -->
-          <imagem-responsiva v-meu-transform="{ incremento: 15, animacao: true }" :url="foto.url" :titulo="foto.titulo"/>
+          <!--
+            Na diretiva posso enviar um objeto js: v-meu-transform="{ incremento: 15, animacao: true }"
+            Ou utilizar o modificador da diretiva
+          -->
+          <imagem-responsiva v-meu-transform.animacao.reverse="15" :url="foto.url" :titulo="foto.titulo"/>
           <!--
             No elemento confirmacao utiliza-se o databinding para que se avalie a expressão
           -->
