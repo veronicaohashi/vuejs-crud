@@ -23,6 +23,9 @@ const router = new VueRouter({
   mode: 'history'            // Para remover o # 
 });
 
+// Registro da diretiva transform
+import './directives/Transform';
+
 // Vue instance, criada com o auxilio do global vue object
 // A vue instance é a ponto entre o componente e a view 
 new Vue({
