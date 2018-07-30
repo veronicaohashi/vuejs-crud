@@ -14,8 +14,9 @@
           <!--
             Na diretiva posso enviar um objeto js: v-meu-transform="{ incremento: 15, animacao: true }"
             Ou utilizar o modificador da diretiva
+            A diretiva aceita argumentos e modificadores
           -->
-          <imagem-responsiva v-meu-transform.animacao.reverse="15" :url="foto.url" :titulo="foto.titulo"/>
+          <imagem-responsiva v-meu-transform:scale.animacao="1.2" :url="foto.url" :titulo="foto.titulo"/>
           <!--
             No elemento confirmacao utiliza-se o databinding para que se avalie a expressão
           -->

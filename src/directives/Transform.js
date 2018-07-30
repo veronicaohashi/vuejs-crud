@@ -9,12 +9,20 @@ Vue.directive('meu-transform',{
     // padrão que a diretiva irá considerar
     let current = 0;
     el.addEventListener('dblclick', function(){
-      let incremento = binding.value || 90; 
+      let incremento = binding.value || 90;
+      let efeito;
+      // Vai fazer o rotate por padrão
+      if (!binding.arg || binding.arg == 'rotate'){
+        if (binding.modifiers.reverse)
+          current -= incremento; 
+        else 
+          current += incremento;
+        efeito = `rotate(${current}deg)`;
+      } else if (binding.arg = 'scale') {
+        efeito = `scale(${incremento})`;
+      }
 
-      if (binding.modifiers.reverse) current -= incremento; 
-      else current += incremento;
-
-      el.style.transform = `rotate(${current}deg)`;
+      el.style.transform = efeito;
       if (binding.modifiers.animacao) el.style.transition = 'transform 0.5s';
 
     })
