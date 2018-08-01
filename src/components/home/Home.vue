@@ -7,6 +7,7 @@
       .target -> quem disparou o evento (no caso a própria tag input)
       .value  -> valor do input
     -->
+    <h2 v-show="mensagem" class="centralizado">{{ mensagem }}</h2>
     <input type="search" @input="filtro = $event.target.value" class="filtro" placeholder="Filtrar">
     <ul class="lista-fotos">
       <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
@@ -45,7 +46,8 @@ export default {
     return{
       titulo: 'Livros',
       fotos: [],
-      filtro: ''
+      filtro: '',
+      mensagem: ''
     }
   },
 
@@ -87,8 +89,15 @@ export default {
   },
 
   methods:{
+    // O then recebe duas funções. then(f1,f2)
+    // f1 - função que vai ser executada se a operação for feita corretamente
+    // f2 - função que vai ser executada caso ocorra algum problema
     remove(foto){
-      alert("remove a foto " + foto.titulo);
+      this.$http
+      .delete(`http://localhost:3000/v1/fotos/${foto._id}`)
+      .then(()=> this.mensagem = 'Foto removida com sucesso', err => {
+        this.mensagem = 'Não foi possível remover a foto';
+      });
     }
   }
 }
