@@ -7,6 +7,7 @@ import App from './App.vue'
 // Regitro do vue-resource
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
+Vue.http.options.root = 'http://localhost:3000/';
 
 // Registro do vue-router
 import VueRouter from 'vue-router';

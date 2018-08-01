@@ -56,7 +56,7 @@ export default {
     // Acessa o próprio componente
     // $http -> só exite dentro do meu componente por conta do vue-resource
     // Retorna uma promise e não a lista de fotos
-    let promise = this.$http.get('http://localhost:3000/v1/fotos');
+    let promise = this.$http.get('v1/fotos');
     promise
       .then(res => res.json())
       .then(fotos => this.fotos = fotos, err => console.log(err));
@@ -94,7 +94,7 @@ export default {
     // f2 - função que vai ser executada caso ocorra algum problema
     remove(foto){
       this.$http
-      .delete(`http://localhost:3000/v1/fotos/${foto._id}`)
+      .delete(`v1/fotos/${foto._id}`)
       .then(()=> {
         // Remover o objeto foto da lista que alimenta o template
         let indice = this.fotos.indexOf(foto);
