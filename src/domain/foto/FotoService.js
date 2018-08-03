@@ -17,11 +17,11 @@ export default class FotoService {
       .save(foto);
   }
 
-
-  // cadastra(foto) {
-  //   return this._resource
-  //     .save(foto);
-  // }
+  busca(id){
+    return this._resource
+      .get({ id })
+      .then(res=>res.json());
+  }
 
   apaga(id) {
     return this._resource
