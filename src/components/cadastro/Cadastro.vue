@@ -1,7 +1,9 @@
 <template>
   <div>
     <h1 class="centralizado">Cadastro</h1>
-    <h2 class="centralizado"></h2>
+    <h2 v-if="foto._id" class="centralizado">Alterando</h2>
+    <h2 v-else class="centralizado">Incluindo</h2>
+    
     <!--
       .prevent - cancela o comportamento padrão
       A diretiva v-model é um atalho para fazer o two way data binding
