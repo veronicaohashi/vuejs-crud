@@ -37,7 +37,7 @@
 import Painel from '../shared/painel/Painel.vue';
 import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue';
 import Botao from '../shared/botao/Botao.vue';
-
+import FotoService from '../../domain/foto/FotoService';
 export default {
   // Função data para fornecer os dados que o template precisa
   // sempre retornando um objeto javascript no qual as propriedades deste objeto são acessíveis através
@@ -56,10 +56,23 @@ export default {
     // Acessa o próprio componente
     // $http -> só exite dentro do meu componente por conta do vue-resource
     // Retorna uma promise e não a lista de fotos
-    let promise = this.$http.get('v1/fotos');
-    promise
-      .then(res => res.json())
+    // let promise = this.$http.get('v1/fotos');
+
+    // Crio uma propriedade dinamicamente no componente que podera ser acessado em outras partes
+    // this.resource = this.$resource('v1/fotos{/id}');
+    // this.resource.query()
+    //   .then(res => res.json())
+    //   .then(fotos => this.fotos = fotos, err => console.log(err));
+    
+    this.service = new FotoService(this.$resource);
+    
+    this.service
+      .lista()
       .then(fotos => this.fotos = fotos, err => console.log(err));
+    
+    // promise
+    //   .then(res => res.json())
+    //   .then(fotos => this.fotos = fotos, err => console.log(err));
     // promise.then(res => {
     //   res.json().then(fotos => this.fotos = fotos);
     // });
@@ -93,8 +106,8 @@ export default {
     // f1 - função que vai ser executada se a operação for feita corretamente
     // f2 - função que vai ser executada caso ocorra algum problema
     remove(foto){
-      this.$http
-      .delete(`v1/fotos/${foto._id}`)
+      this.service
+      .apaga(foto._id)
       .then(()=> {
         // Remover o objeto foto da lista que alimenta o template
         let indice = this.fotos.indexOf(foto);
