@@ -18,6 +18,12 @@
             A diretiva aceita argumentos e modificadores
           -->
           <imagem-responsiva v-meu-transform:scale.animacao="1.2" :url="foto.url" :titulo="foto.titulo"/>
+          
+          <router-link :to="{ name: 'altera', params: { id: foto._id } }">
+            <meu-botao 
+            tipo="button" 
+            rotulo="ALTERAR"/>
+          </router-link>
           <!--
             No elemento confirmacao utiliza-se o databinding para que se avalie a expressão
           -->
