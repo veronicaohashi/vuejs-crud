@@ -19,7 +19,8 @@
   export default {
     data(){
       return{
-        routes
+        // Para cada item do array, verifica se a propriedade menu é true
+        routes: routes.filter(route => route.menu)
       }
     },
 
