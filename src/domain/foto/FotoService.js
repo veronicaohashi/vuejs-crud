@@ -13,8 +13,14 @@ export default class FotoService {
   }
 
   cadastra(foto) {
-    return this._resource
-      .save(foto);
+    if (foto._id){
+      return this._resource
+        .update( { id: foto._id }, foto)
+
+    } else {
+      return this._resource
+        .save(foto);
+    }
   }
 
   busca(id){
