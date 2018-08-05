@@ -3,20 +3,24 @@ import Vue from 'vue'
 // Por utilizar export default o nome do artefato importado deve
 // ser o mesmo do arquivo
 import App from './App.vue'
-
 // Regitro do vue-resource
 import VueResource from 'vue-resource';
-Vue.use(VueResource);
-Vue.http.options.root = 'http://localhost:3000/';
-
 // Registro do vue-router
 import VueRouter from 'vue-router';
-Vue.use(VueRouter);
-
 // Registro do routes
 // Como no routes.js não foi utilizado o export default, não podemos utilizar um elemento padrão, por isso
 // utiliza-se as {} para dizer o que eu quero importar do módulo
 import {routes} from './routes';
+// Registro da diretiva transform
+import './directives/Transform';
+// Registro do vee-validade
+import VeeValidate from 'vee-validate';
+
+Vue.use(VueResource);
+Vue.http.options.root = 'http://localhost:3000/';
+
+Vue.use(VueRouter);
+
 // Com o auxílio do vue-router, passo as rotas configuradas e ele vai devolver um roteador que será utilizado
 // pela aplicação. propriedade routes = routes
 const router = new VueRouter({ 
@@ -24,8 +28,7 @@ const router = new VueRouter({
   mode: 'history'            // Para remover o # 
 });
 
-// Registro da diretiva transform
-import './directives/Transform';
+Vue.use(VeeValidate);
 
 // Vue instance, criada com o auxilio do global vue object
 // A vue instance é a ponto entre o componente e a view 
