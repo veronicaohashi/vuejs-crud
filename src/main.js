@@ -5,21 +5,25 @@ import Vue from 'vue'
 import App from './App.vue'
 // Regitro do vue-resource
 import VueResource from 'vue-resource';
+Vue.use(VueResource);
+Vue.http.options.root = 'http://localhost:3000/';
 // Registro do vue-router
 import VueRouter from 'vue-router';
+Vue.use(VueRouter);
 // Registro do routes
 // Como no routes.js não foi utilizado o export default, não podemos utilizar um elemento padrão, por isso
 // utiliza-se as {} para dizer o que eu quero importar do módulo
 import {routes} from './routes';
 // Registro da diretiva transform
 import './directives/Transform';
+// Registro do pt_Br
+import msg from './pt_BR';
 // Registro do vee-validade
-import VeeValidate from 'vee-validate';
+import VeeValidate, { Validator } from 'vee-validate';
 
-Vue.use(VueResource);
-Vue.http.options.root = 'http://localhost:3000/';
+Validator.localize('pt_BR', msg);
+Vue.use(VeeValidate);
 
-Vue.use(VueRouter);
 
 // Com o auxílio do vue-router, passo as rotas configuradas e ele vai devolver um roteador que será utilizado
 // pela aplicação. propriedade routes = routes
@@ -27,8 +31,6 @@ const router = new VueRouter({
   routes,
   mode: 'history'            // Para remover o # 
 });
-
-Vue.use(VeeValidate);
 
 // Vue instance, criada com o auxilio do global vue object
 // A vue instance é a ponto entre o componente e a view 
