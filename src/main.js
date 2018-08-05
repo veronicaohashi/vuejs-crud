@@ -20,9 +20,11 @@ import './directives/Transform';
 import msg from './pt_BR';
 // Registro do vee-validade
 import VeeValidate, { Validator } from 'vee-validate';
-
 Validator.localize('pt_BR', msg);
 Vue.use(VeeValidate);
+// Registro do bootstrap
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 
 // Com o auxílio do vue-router, passo as rotas configuradas e ele vai devolver um roteador que será utilizado
