@@ -41,7 +41,9 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss">
+
+  $cor: firebrick;
   .botao{
     display: inline-block;
     padding: 10px;
@@ -51,7 +53,7 @@
   }
 
   .botao-perigo{
-    background: firebrick;
+    background: $cor;
     color: white;
   }
 
