@@ -10,7 +10,7 @@
     <h2 v-show="mensagem" class="centralizado">{{ mensagem }}</h2>
     <input type="search" @input="filtro = $event.target.value" class="filtro" placeholder="Filtrar">
     <ul class="lista-fotos">
-      <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
+      <li class="lista-fotos-item" v-for="foto of fotosComFiltro" :key="foto._id">
         <meu-painel :titulo="foto.titulo">  
           <!--
             Na diretiva posso enviar um objeto js: v-meu-transform="{ incremento: 15, animacao: true }"
