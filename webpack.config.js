@@ -62,7 +62,8 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: '"production"'
+        NODE_ENV: '"production"',
+        API_ENDPOINT: '"http://localhost:3000/"'
       }
     }),
     new webpack.optimize.UglifyJsPlugin({

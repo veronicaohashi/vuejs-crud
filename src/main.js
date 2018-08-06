@@ -6,7 +6,7 @@ import App from './App.vue'
 // Regitro do vue-resource
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
-Vue.http.options.root = 'http://localhost:3000/';
+Vue.http.options.root = process.env.API_ENDPOINT ? process.env.API_ENDPOINT : 'http://localhost:3000';
 // Registro do vue-router
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
